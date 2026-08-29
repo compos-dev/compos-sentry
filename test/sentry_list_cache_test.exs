@@ -1,4 +1,4 @@
-defmodule Aimax.SentryListCacheTest do
+defmodule Compos.SentryListCacheTest do
   @moduledoc """
   The issue list fetches through the buffer cache. One open pays one
   fetch; marks and width changes redraw the cached rows; `g` fetches
@@ -7,7 +7,7 @@ defmodule Aimax.SentryListCacheTest do
 
   use ExUnit.Case, async: false
 
-  alias Aimax.Core.{Buffer, Editor, KeyDispatch, Session}
+  alias Compos.Core.{Buffer, Editor, KeyDispatch, Session}
 
   defp eval!(source) do
     {:ok, printed} = Session.eval(source)
@@ -36,9 +36,9 @@ defmodule Aimax.SentryListCacheTest do
 
     on_exit(fn ->
       Editor.minibuffer_close()
-      Aimax.Core.kill_buffer("*Sentry issues*")
-      Aimax.Core.kill_buffer("*Sentry issue: 42*")
-      Aimax.Core.kill_buffer("*chat:sentry*")
+      Compos.Core.kill_buffer("*Sentry issues*")
+      Compos.Core.kill_buffer("*Sentry issue: 42*")
+      Compos.Core.kill_buffer("*chat:sentry*")
     end)
 
     :ok

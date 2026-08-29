@@ -1,4 +1,4 @@
-defmodule Aimax.SentryListVerbsTest do
+defmodule Compos.SentryListVerbsTest do
   @moduledoc """
   The detail workspace's verbs — ask the agent, open in Sentry, resolve —
   act from the issue list on the marked rows, or the row at point.
@@ -7,7 +7,7 @@ defmodule Aimax.SentryListVerbsTest do
 
   use ExUnit.Case, async: false
 
-  alias Aimax.Core.{Buffer, Editor, KeyDispatch, Session}
+  alias Compos.Core.{Buffer, Editor, KeyDispatch, Session}
 
   defp eval!(source) do
     {:ok, printed} = Session.eval(source)
@@ -46,7 +46,7 @@ defmodule Aimax.SentryListVerbsTest do
             "*Sentry issue: 43*",
             "*chat:sentry*"
           ],
-          do: Aimax.Core.kill_buffer(buffer)
+          do: Compos.Core.kill_buffer(buffer)
     end)
 
     :ok

@@ -122,7 +122,7 @@
 
 (define (sentry--tmp-path)
   (set! *sentry--seq* (+ *sentry--seq* 1))
-  (let ((dir (string-append (aimax-home) "/tmp")))
+  (let ((dir (string-append (compos-home) "/tmp")))
     (make-directory! dir)
     (string-append dir "/sentry-" (number->string (current-time)) "-"
                    (number->string *sentry--seq*) ".conf")))

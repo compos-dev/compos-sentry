@@ -1,4 +1,4 @@
-defmodule Aimax.SentryTest do
+defmodule Compos.SentryTest do
   @moduledoc """
   The Sentry tests that drive keys.
 
@@ -11,7 +11,7 @@ defmodule Aimax.SentryTest do
 
   use ExUnit.Case, async: false
 
-  alias Aimax.Core.{Buffer, Editor, KeyDispatch, Session}
+  alias Compos.Core.{Buffer, Editor, KeyDispatch, Session}
 
   defp eval!(source) do
     {:ok, printed} = Session.eval(source)
@@ -21,7 +21,7 @@ defmodule Aimax.SentryTest do
   setup do
     # the frame's group and the last one visited are global editor state:
     # a module that entered a group leaves the next one starting inside it
-    Aimax.Core.Session.eval(
+    Compos.Core.Session.eval(
       "(begin (set-frame-local! 'current-group #f) (set-frame-local! 'previous-group #f))"
     )
     eval!("(set! *sentry-transport* sentry--curl)")
@@ -40,7 +40,7 @@ defmodule Aimax.SentryTest do
             "*Sentry issue: 99*",
             "*chat:sentry*"
           ],
-          do: Aimax.Core.kill_buffer(buffer)
+          do: Compos.Core.kill_buffer(buffer)
     end)
 
     :ok
